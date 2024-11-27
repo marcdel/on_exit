@@ -7,11 +7,7 @@ defmodule OnExit.Application do
 
   @impl true
   def start(_type, _args) do
-    children = [
-      {Registry, keys: :unique, name: HelloerRegistry},
-      {DynamicSupervisor, strategy: :one_for_one, name: HelloerSupervisor},
-      {Task.Supervisor, name: HelloerTaskSupervisor}
-    ]
+    children = []
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
