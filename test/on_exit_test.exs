@@ -5,11 +5,7 @@ defmodule OnExitTest do
   setup do
     helloer = ProtoMock.new(Helloer)
 
-    on_exit(fn ->
-      if Process.alive?(helloer.pid) |> dbg() do
-        ProtoMock.verify!(helloer)
-      end
-    end)
+    on_exit(fn -> ProtoMock.verify!(helloer) end)
 
     %{helloer: helloer}
   end
